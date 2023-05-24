@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Video Info</title>
+</head>
+<body>
+    <h1>Video info</h1>
+    <form>
+        <div>
+            <label>
+                Select a video
+            </label>
+            <input type="file" accept="video/*" />
+        </div>
+        <button type="submit">Get Info</button>
+    </form>
+    <h1 id="result"></h1>
+</body>
+<script >
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+    document.querySelector('form').addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const { path } = document.querySelector('input').files[0];
+        // send message and value to main electron app
+        console.log('#1 path :', path)
+        ipcRenderer.send('video:submit',path);
+    });
+
+    ipcRenderer.on('video:metadata',(err,duration)=>{
+        document.querySelector('#result').textContent =`Video is ${duration}s`;
+    });
+
+</script>
+</html>

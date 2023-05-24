@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+}
+body{
+  width: 100%;
+  height: 100vh;
+  background-color: #b8b5b5;
+  overflow: hidden;
+}
+.alert-btn{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 30px;
+  outline: none;
+  border: none;
+}
+.success{
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  background-color: rgb(30, 235, 30);
+  padding: 10px 40px;
+  border-radius: 5px;
+  border-left :6px solid green;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.success .alrt{
+  opacity: 1;
+}
+
+.check{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size:30px ;
+}
+.msg {
+  font-size: 19px;
+  color:  rgb(7, 75, 7);
+  margin: 0 20px;
+  user-select: none;
+}
+.crose{
+ border: 2px solid rgb(8, 87, 8);
+ background-color: rgb(30, 235, 30);
+  border-radius: 30%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-in-out;
+}
+.crose:hover{
+  color: rgb(243, 5, 5);
+  border: 2px solid rgb(243, 5, 5);
+}
+.hide{
+  transform: translateX(100%);
+}
+.frmLogin{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 15vh;
+}
+.frmLogin div{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
