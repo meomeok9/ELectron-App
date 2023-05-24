@@ -7,13 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <label for="inputTodo">Enter your Todo</label>
-        <input id="inputTodo" type="text" autofocus>
-    </div>
-    <button type="submit">Add</button>
+    <form>
+        <div>
+            <label for="inputTodo">Enter your Todo</label>
+            <input id="inputTodo" type="text" autofocus />
+        </div>
+        <button type="submit">Add</button>
+    </form>
 </body>
 <script>
-    
+    let  todo;
+    const {ipcRenderer} = require('electron');
+    document.querySelector("form").addEventListener('submit',(e)=>{
+        e.preventDefault();
+        todo = document.getElementById("inputTodo").value;
+        console.log(todo);
+        ipcRenderer.send('todo:add',todo);
+    })
 </script>
 </html>
